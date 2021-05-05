@@ -1,0 +1,79 @@
+<div style="text-align:center">
+
+  <form [formGroup]="registerform">
+
+    <label>First Name:
+      <input type="text" formControlName="firstName">
+    </label><br/><br/>
+
+    <label>Last Name:
+      <input type="text" formControlName="lastName">
+    </label><br/><br/>
+
+    <label style="color:red">*</label>
+    <label>User Name:
+      <input type="text" maxlength="10" formControlName="userName">
+      <label style="color:red" *ngIf="mandatoryuserName"> username is mandatory</label>
+      <label style="color:red" *ngIf="validateuserName"> userName should be minimum 6 characters</label>
+    </label><br/><br/>
+
+    <label style="color:red">*</label>
+    <label>Password:
+      <input type="text" maxlength="10" formControlName="password">
+    </label>
+    <label style="color:red" *ngIf="mandatoryPassword"> password is mandatory</label>
+    <label style="color:red" *ngIf="validatePassword"> password should be minimum 6 characters</label>
+    <br/><br/>
+
+    <label style="color:red">*</label>
+    <label> Email Id:
+      <input type="text" formControlName="emailId">
+      <label style="color:red" *ngIf="mandatoryEmail"> emailId is mandatory</label>
+      <label style="color:red" *ngIf="validateEmail"> id should have @ symbol</label>
+    </label><br/><br/>
+
+    <label style="color:red">*</label>
+    <label>Mobile:
+      <input type="text" maxlength="10" formControlName="mobile" placeholder="xxx-xxx-xxxx">
+      <label style="color:red" *ngIf="mandatoryMobile"> mobilenumber is mandatory</label>
+      <label style="color:red" *ngIf="validateMobile"> enter 10 digit mobilenumber</label>
+    </label><br/><br/>
+
+    <label style="color:red">*</label>
+    <label>Address:
+      <textarea type="text" formControlName="address"></textarea>
+      <label style="color:red" *ngIf="mandatoryAddress"> address is mandatory</label>
+    </label><br><br>
+
+    <label>Age:
+      <input type="text" maxlength="2" formControlName="age">
+      <label style="color:red" *ngIf="validateAge"> between 18 to 60</label>
+    </label><br/><br/>
+
+    <label>City:
+      <input type="text" formControlName="city">
+    </label><br/><br/>
+
+    <label>Select gender:</label>
+    <div class="custom-control custom-radio">
+      <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+      <label class="custom-control-label" for="male">Male</label>
+      <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+      <label class="custom-control-label" for="female">Female</label>
+      <input id="Other" type="radio" class="custom-control-input" value="Other" name="gender" formControlName="gender">
+      <label class="custom-control-label" for="Other">Other</label><br/><br/>
+    </div>
+
+    <label>Country:
+      <select formControlName="country">
+        <option *ngFor="let country of countries" [value]="country">
+          {{country}}
+        </option>
+      </select>
+    </label><br/><br/>
+
+    <button (click)="submit()">Submit Application</button><br/><br/>
+    <button (click)="reset()">clear</button><br/><br/>
+    <button (click)="gotologin()" [disabled]="disableButton">GotoLogin Page</button><br/>
+  </form>
+</div>
