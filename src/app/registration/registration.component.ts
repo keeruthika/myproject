@@ -41,6 +41,7 @@ export class RegistrationComponent implements OnInit {
 	validateMobile: Boolean = false;
 	validateAge: Boolean = false;
 
+  username:string = 'User Name:';
 	countries: any[] = [];
 	constructor(private router: Router) {}
 	disableButton: Boolean = false;
@@ -53,6 +54,7 @@ export class RegistrationComponent implements OnInit {
 	}
 
 	submit() {
+
 		this.disableButton = true;
 		if (this.registerform.get('password').value.length == 0) {
 			this.mandatoryPassword = true;
@@ -64,6 +66,17 @@ export class RegistrationComponent implements OnInit {
 		} else {
 			this.validatePassword = false;
 		}
+
+	if (this.registerform.get('emailId').value.length == 0) {
+  			this.mandatoryEmail = true;
+  		} else {
+  			this.mandatoryEmail = false;
+  		}
+  		if (this.registerform.get('emailId').value.includes('@')) {
+  			this.validateEmail = false;
+  		} else {
+  			this.validateEmail = true;
+  		}
 
 		if (this.registerform.get('userName').value.length == 0) {
 			this.mandatoryuserName = true;
@@ -98,21 +111,13 @@ export class RegistrationComponent implements OnInit {
 		} else {
 			this.mandatoryAddress = false;
 		}
-		if (this.registerform.get('emailId').value.length == 0) {
-			this.mandatoryEmail = true;
-		} else {
-			this.mandatoryEmail = false;
-		}
-		if (this.registerform.get('emailId').value.includes('@')) {
-			this.validateEmail = false;
-		} else {
-			this.validateEmail = true;
-		}
 
 
+		if (!this.validateEmail && !this.mandatoryEmail && !this.mandatoryAddress && !this.validateAge && !this.mandatoryMobile && !this.validateMobile && !this.mandatoryuserName && !this.validateuserName && !this.mandatoryPassword && !this.validatePassword){
+		this.router.navigateByUrl('/registration-success');
+		}
 	}
-	// const aa='kisore';
-	// console.log(aa.includes('o'));
+
 	reset() {
 		this.registerform.controls['firstName'].setValue('');
 		this.registerform.controls['lastName'].setValue('');

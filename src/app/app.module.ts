@@ -7,11 +7,14 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
 
  const routes: Routes = [
    { path: 'registration', component: RegistrationComponent },
    { path: 'login', component: LoginComponent },
    { path: 'home', component: HomeComponent },
+   { path: 'registration-success', component: RegistrationSuccessComponent },
+
    { path: '', component: HomeComponent }
  ];
 @NgModule({
@@ -19,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RegistrationSuccessComponent
   ],
   imports: [
     BrowserModule,

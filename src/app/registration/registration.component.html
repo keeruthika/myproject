@@ -11,7 +11,7 @@
     </label><br/><br/>
 
     <label style="color:red">*</label>
-    <label>User Name:
+    <label>{{username}}
       <input type="text" maxlength="10" formControlName="userName">
       <label style="color:red" *ngIf="mandatoryuserName"> username is mandatory</label>
       <label style="color:red" *ngIf="validateuserName"> userName should be minimum 6 characters</label>
