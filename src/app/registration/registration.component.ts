@@ -79,6 +79,12 @@ export class RegistrationComponent implements OnInit{
                this.validateMobile=false;
                 }
 
+       if(this.registerform.get('age').value<18 || this.registerform.get('age').value>55){
+               this.validateAge=true;
+             }else{
+                this.validateAge=false;
+               }
+
      if(this.registerform.get('address').value.length==0){
         this.mandatoryAddress=true;
       }else{
@@ -115,6 +121,7 @@ export class RegistrationComponent implements OnInit{
        this.validateuserName=false;
        this.validateEmail=false;
        this.validateMobile=false;
+       this.validateAge=false;
        this.mandatoryPassword=false;
        this.mandatoryAddress=false;
        this.mandatoryEmail=false;
@@ -122,6 +129,10 @@ export class RegistrationComponent implements OnInit{
        this.mandatoryuserName=false;
        this.disableButton=false;
        }
+
+ back(){
+   this.router.navigateByUrl('/home');
+ }
 
   gotologin() {
        this.router.navigateByUrl('/login');

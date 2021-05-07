@@ -47,7 +47,7 @@
 
     <label>Age:
       <input type="text" maxlength="2" formControlName="age">
-      <label style="color:red" *ngIf="validateAge"> between 18 to 60</label>
+      <label style="color:red" *ngIf="validateAge"> between 18 to 55</label>
     </label><br/><br/>
 
     <label>City:
@@ -74,6 +74,7 @@
 
     <button (click)="submit()">Submit Application</button><br/><br/>
     <button (click)="reset()">clear</button><br/><br/>
+    <button (click)="back()">BacktoHomepage</button><br/><br/>
     <button (click)="gotologin()" [disabled]="disableButton">GotoLogin Page</button><br/>
   </form>
 </div>
