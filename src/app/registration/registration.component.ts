@@ -94,7 +94,7 @@ export class RegistrationComponent implements OnInit {
 		} else {
 			this.mandatoryMobile = false;
 		}
-		if (this.registerform.get('mobile').value.length != 0 && this.registerform.get('mobile').value.length <= 10) {
+		if (this.registerform.get('mobile').value.length != 0 && this.registerform.get('mobile').value.length < 10) {
 			this.validateMobile = true;
 		} else {
 			this.validateMobile = false;
@@ -113,7 +113,9 @@ export class RegistrationComponent implements OnInit {
 		}
 
 
-		if (!this.validateEmail && !this.mandatoryEmail && !this.mandatoryAddress && !this.validateAge && !this.mandatoryMobile && !this.validateMobile && !this.mandatoryuserName && !this.validateuserName && !this.mandatoryPassword && !this.validatePassword){
+		if (!this.validateEmail &&!this.mandatoryEmail && !this.mandatoryAddress && !this.validateAge
+		   && !this.mandatoryMobile && !this.validateMobile && !this.mandatoryuserName && !this.validateuserName
+		   && !this.mandatoryPassword && !this.validatePassword){
 		this.router.navigateByUrl('/registration-success');
 		}
 	}
