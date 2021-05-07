@@ -73,7 +73,7 @@ export class RegistrationComponent implements OnInit{
       }else{
          this.mandatoryMobile=false;
         }
-        if(this.registerform.get('mobile').value.length!=0 && this.registerform.get('mobile').value.length<10){
+        if(this.registerform.get('mobile').value.length!=0 && this.registerform.get('mobile').value.length<=10){
                  this.validateMobile=true;
               }else{
                this.validateMobile=false;
