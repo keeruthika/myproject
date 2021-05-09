@@ -9,6 +9,8 @@ import {
 import {
 	Router
 } from '@angular/router';
+import { RegistrationService } from './registration.service';
+import { RegistrationDTO } from '../dto/registration.dto';
 
 @Component({
 	selector: 'app-registration',
@@ -43,7 +45,7 @@ export class RegistrationComponent implements OnInit {
 
   username:string = 'User Name:';
 	countries: any[] = [];
-	constructor(private router: Router) {}
+	constructor(private router: Router, private registrationService: RegistrationService ) {}
 	disableButton: Boolean = false;
 
 	ngOnInit() {
@@ -100,7 +102,8 @@ export class RegistrationComponent implements OnInit {
 			this.validateMobile = false;
 		}
 
-		if (this.registerform.get('age').value < 18 || this.registerform.get('age').value > 55) {
+		if ( this.registerform.get('age').value.length > 0 &&
+		 (this.registerform.get('age').value < 18 || this.registerform.get('age').value > 55)) {
 			this.validateAge = true;
 		} else {
 			this.validateAge = false;
@@ -116,7 +119,16 @@ export class RegistrationComponent implements OnInit {
 		if (!this.validateEmail &&!this.mandatoryEmail && !this.mandatoryAddress && !this.validateAge
 		   && !this.mandatoryMobile && !this.validateMobile && !this.mandatoryuserName && !this.validateuserName
 		   && !this.mandatoryPassword && !this.validatePassword){
-		this.router.navigateByUrl('/registration-success');
+
+		  // const abc=new RegistrationDTO();
+		 //  this.registrationService.registrationdto=abc;
+		this.registrationService.registrationdto.userName = this.registerform.controls['userName'].value;
+			this.registrationService.registrationdto.password = this.registerform.controls['password'].value;
+		this.registrationService.registrationdto.mobile = this.registerform.controls['mobile'].value;
+		this.registrationService.registrationdto.address = this.registerform.controls['address'].value;
+		this.registrationService.registrationdto.emailId = this.registerform.controls['emailId'].value;
+
+     this.router.navigateByUrl('/registration-success');
 		}
 	}
 

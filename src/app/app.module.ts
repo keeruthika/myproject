@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationService } from './registration/registration.service';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
 
  const routes: Routes = [
@@ -14,7 +15,6 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
    { path: 'login', component: LoginComponent },
    { path: 'home', component: HomeComponent },
    { path: 'registration-success', component: RegistrationSuccessComponent },
-
    { path: '', component: HomeComponent }
  ];
 @NgModule({
@@ -34,7 +34,7 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
 
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 
 })
