@@ -54,68 +54,69 @@ export class RegistrationComponent implements OnInit {
 		this.countries.push('Japan');
 		//this.registerform.get('gender').value='female';
 	}
+validateField() {
+  this.disableButton = true;
+  		if (this.registerform.get('password').value.length == 0) {
+  			this.mandatoryPassword = true;
+  		} else {
+  			this.mandatoryPassword = false;
+  		}
+  		if (this.registerform.get('password').value.length != 0 && this.registerform.get('password').value.length < 6) {
+  			this.validatePassword = true;
+  		} else {
+  			this.validatePassword = false;
+  		}
 
+  	if (this.registerform.get('emailId').value.length == 0) {
+    			this.mandatoryEmail = true;
+    		} else {
+    			this.mandatoryEmail = false;
+    		}
+    		if (this.registerform.get('emailId').value.includes('@')) {
+    			this.validateEmail = false;
+    		} else {
+    			this.validateEmail = true;
+    		}
+
+  		if (this.registerform.get('userName').value.length == 0) {
+  			this.mandatoryuserName = true;
+  		} else {
+  			this.mandatoryuserName = false;
+  		}
+  		if (this.registerform.get('userName').value.length != 0 && this.registerform.get('userName').value.length < 6) {
+  			this.validateuserName = true;
+  		} else {
+  			this.validateuserName = false;
+  		}
+
+  		if (this.registerform.get('mobile').value.length == 0) {
+  			this.mandatoryMobile = true;
+  		} else {
+  			this.mandatoryMobile = false;
+  		}
+  		if (this.registerform.get('mobile').value.length != 0 && this.registerform.get('mobile').value.length < 10) {
+  			this.validateMobile = true;
+  		} else {
+  			this.validateMobile = false;
+  		}
+
+  		if ( this.registerform.get('age').value.length > 0 &&
+  		 (this.registerform.get('age').value < 18 || this.registerform.get('age').value > 55)) {
+  			this.validateAge = true;
+  		} else {
+  			this.validateAge = false;
+  		}
+
+  		if (this.registerform.get('address').value.length == 0) {
+  			this.mandatoryAddress = true;
+  		} else {
+  			this.mandatoryAddress = false;
+  		}
+
+
+ }
 	submit() {
-
-		this.disableButton = true;
-		if (this.registerform.get('password').value.length == 0) {
-			this.mandatoryPassword = true;
-		} else {
-			this.mandatoryPassword = false;
-		}
-		if (this.registerform.get('password').value.length != 0 && this.registerform.get('password').value.length < 6) {
-			this.validatePassword = true;
-		} else {
-			this.validatePassword = false;
-		}
-
-	if (this.registerform.get('emailId').value.length == 0) {
-  			this.mandatoryEmail = true;
-  		} else {
-  			this.mandatoryEmail = false;
-  		}
-  		if (this.registerform.get('emailId').value.includes('@')) {
-  			this.validateEmail = false;
-  		} else {
-  			this.validateEmail = true;
-  		}
-
-		if (this.registerform.get('userName').value.length == 0) {
-			this.mandatoryuserName = true;
-		} else {
-			this.mandatoryuserName = false;
-		}
-		if (this.registerform.get('userName').value.length != 0 && this.registerform.get('userName').value.length < 6) {
-			this.validateuserName = true;
-		} else {
-			this.validateuserName = false;
-		}
-
-		if (this.registerform.get('mobile').value.length == 0) {
-			this.mandatoryMobile = true;
-		} else {
-			this.mandatoryMobile = false;
-		}
-		if (this.registerform.get('mobile').value.length != 0 && this.registerform.get('mobile').value.length < 10) {
-			this.validateMobile = true;
-		} else {
-			this.validateMobile = false;
-		}
-
-		if ( this.registerform.get('age').value.length > 0 &&
-		 (this.registerform.get('age').value < 18 || this.registerform.get('age').value > 55)) {
-			this.validateAge = true;
-		} else {
-			this.validateAge = false;
-		}
-
-		if (this.registerform.get('address').value.length == 0) {
-			this.mandatoryAddress = true;
-		} else {
-			this.mandatoryAddress = false;
-		}
-
-
+    this.validateField();
 		if (!this.validateEmail &&!this.mandatoryEmail && !this.mandatoryAddress && !this.validateAge
 		   && !this.mandatoryMobile && !this.validateMobile && !this.mandatoryuserName && !this.validateuserName
 		   && !this.mandatoryPassword && !this.validatePassword){
@@ -127,7 +128,7 @@ export class RegistrationComponent implements OnInit {
 		this.registrationService.registrationdto.mobile = this.registerform.controls['mobile'].value;
 		this.registrationService.registrationdto.address = this.registerform.controls['address'].value;
 		this.registrationService.registrationdto.emailId = this.registerform.controls['emailId'].value;
-
+    this.registrationService.saveData(this.registrationService.registrationdto).subscribe(res=>console.log(res));
      this.router.navigateByUrl('/registration-success');
 		}
 	}

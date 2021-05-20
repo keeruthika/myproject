@@ -9,6 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationService } from './registration/registration.service';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
+import { ApiService } from './apiservice/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
  const routes: Routes = [
    { path: 'registration', component: RegistrationComponent },
@@ -30,11 +32,11 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
-
   ],
   exports: [RouterModule],
-  providers: [RegistrationService],
+  providers: [RegistrationService, ApiService],
   bootstrap: [AppComponent]
 
 })
