@@ -2,12 +2,16 @@
 
   <form [formGroup]="registerform">
 
+    <label style="color:red">*</label>
     <label>First Name:
       <input type="text" formControlName="firstName">
+      <label style="color:red" *ngIf="mandatoryfirstName"> firstname is mandatory</label>
     </label><br/><br/>
 
+    <label style="color:red">*</label>
     <label>Last Name:
       <input type="text" formControlName="lastName">
+      <label style="color:red" *ngIf="mandatorylastName"> lastname is mandatory</label>
     </label><br/><br/>
 
     <label style="color:red">*</label>
@@ -75,6 +79,7 @@
     <button (click)="submit()">Submit Application</button><br/><br/>
     <button (click)="reset()">clear</button><br/><br/>
     <button (click)="back()">BacktoHomepage</button><br/><br/>
+    <button (click)="registeredusers()">ViewallRegisteredUser<</button><br/>
     <button (click)="gotologin()" [disabled]="disableButton">GotoLogin Page</button><br/>
   </form>
 </div>

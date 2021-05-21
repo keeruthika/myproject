@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  selector: 'app-viewusers',
+  templateUrl: './viewusers.component.html',
+  styleUrls: ['./viewusers.component.less']
 })
-export class LoginComponent implements OnInit {
+export class ViewusersComponent implements OnInit {
 
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
-  back() {
+registeredusers() {
      this.router.navigateByUrl('/registration');
 }
+
 }

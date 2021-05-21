@@ -29,13 +29,15 @@ export class RegistrationComponent implements OnInit {
   mandatoryEmail: Boolean = false;
   mandatoryMobile: Boolean = false;
   mandatoryAddress: Boolean = false;
+  mandatoryfirstName:Boolean = false;
+  mandatorylastName:Boolean = false;
   validateEmail: Boolean = false;
   validatePassword: Boolean = false;
   validateuserName: Boolean = false;
   validateMobile: Boolean = false;
   validateAge: Boolean = false;
 
-  username: string = "User Name:";
+  username: string = "UserName:";
   countries: any[] = [];
   constructor(
     private router: Router,
@@ -51,6 +53,17 @@ export class RegistrationComponent implements OnInit {
   }
   validateField() {
     this.disableButton = true;
+    if (this.registerform.get("firstName").value.length == 0) {
+          this.mandatoryfirstName= true;
+        } else {
+          this.mandatoryfirstName = false;
+        }
+
+    if (this.registerform.get("lastName").value.length == 0) {
+          this.mandatorylastName = true;
+        } else {
+          this.mandatorylastName= false;
+        }
     if (this.registerform.get("password").value.length == 0) {
       this.mandatoryPassword = true;
     } else {
@@ -180,11 +193,18 @@ export class RegistrationComponent implements OnInit {
     this.mandatoryEmail = false;
     this.mandatoryMobile = false;
     this.mandatoryuserName = false;
+    this.mandatoryfirstName= false;
+    this.mandatorylastName = false;
+
     this.disableButton = false;
   }
 
   back() {
     this.router.navigateByUrl("/home");
+  }
+
+ registeredusers() {
+    this.router.navigateByUrl("/viewusers");
   }
 
   gotologin() {

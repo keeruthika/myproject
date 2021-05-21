@@ -11,11 +11,13 @@ import { RegistrationService } from './registration/registration.service';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
 import { ApiService } from './apiservice/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewusersComponent } from './viewusers/viewusers.component';
 
  const routes: Routes = [
    { path: 'registration', component: RegistrationComponent },
    { path: 'login', component: LoginComponent },
    { path: 'home', component: HomeComponent },
+   { path: 'viewusers', component: ViewusersComponent},
    { path: 'registration-success', component: RegistrationSuccessComponent },
    { path: '', component: HomeComponent }
  ];
@@ -25,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    RegistrationSuccessComponent
+    RegistrationSuccessComponent,
+    ViewusersComponent
   ],
   imports: [
     BrowserModule,
