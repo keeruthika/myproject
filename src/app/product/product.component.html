@@ -1,0 +1,30 @@
+<h3>Enter Product Information</h3>
+<label>Product Name :
+  <input type="text" placeholder="Product Name">
+</label><br/><br/>
+<label>Number :
+ <input type="text">
+</label><br/><br/>
+<label>Made from:
+ <input type="text">
+</label><br/><br/>
+<label>Color:
+<select>
+      <option *ngFor="let color of colors" [value]="color">
+        {{color}}
+      </option>
+</select>
+</label><br/><br/>
+<label>Choose size:
+  <input type="text">
+  <input id="inches" type="radio" value="inches" name="size">
+  <label for="inches">inches</label>
+  <input id="centimeter" type="radio" value="centimeter" name="size">
+  <label for="centimeter">Cms</label>
+</label><br/><br/>
+<label>Description:
+<textarea type="text"> </textarea></label><br/><br/>
+<label>Customer care:
+  <input type="text">
+</label><br/><br/>
+

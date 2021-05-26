@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RegistrationService } from "../registration/registration.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-registration-success",
@@ -13,7 +14,7 @@ export class RegistrationSuccessComponent implements OnInit {
   address: string;
   emailid: string;
 
-  constructor(private registrationService: RegistrationService) {}
+  constructor(private router:Router , private registrationService: RegistrationService) {}
 
   ngOnInit() {
     this.username = this.registrationService.registrationdto.userName;
@@ -22,4 +23,10 @@ export class RegistrationSuccessComponent implements OnInit {
     this.address = this.registrationService.registrationdto.address;
     this.emailid = this.registrationService.registrationdto.emailId;
   }
+   add() {
+          this.router.navigateByUrl("/product");
+      }
+   list() {
+          this.router.navigateByUrl("/productlist");
+   }
 }

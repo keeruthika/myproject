@@ -12,12 +12,17 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
 import { ApiService } from './apiservice/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewusersComponent } from './viewusers/viewusers.component';
+import { ProductComponent } from './product/product.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { AgGridModule } from 'ag-grid-angular';
 
  const routes: Routes = [
    { path: 'registration', component: RegistrationComponent },
    { path: 'login', component: LoginComponent },
    { path: 'home', component: HomeComponent },
    { path: 'viewusers', component: ViewusersComponent},
+   { path: 'product', component: ProductComponent },
+   { path: 'productlist', component: ProductlistComponent },
    { path: 'registration-success', component: RegistrationSuccessComponent },
    { path: '', component: HomeComponent }
  ];
@@ -28,13 +33,16 @@ import { ViewusersComponent } from './viewusers/viewusers.component';
     LoginComponent,
     RegistrationComponent,
     RegistrationSuccessComponent,
-    ViewusersComponent
+    ViewusersComponent,
+    ProductComponent,
+    ProductlistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    AgGridModule.withComponents([]),
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],

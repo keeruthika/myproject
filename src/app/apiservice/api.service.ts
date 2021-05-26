@@ -45,4 +45,13 @@ export class ApiService {
       catchError((error: HttpErrorResponse) => throwError(error))
     );
   }
+
+   deleteData(url, data): Observable<Object> {
+      const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        body: data
+      };
+      return this.http.delete(url, httpOptions).pipe(
+        catchError((error: HttpErrorResponse) => throwError(error)));
+    }
 }

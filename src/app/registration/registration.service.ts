@@ -20,4 +20,8 @@ export class RegistrationService {
       abc
     );
   }
+
+  getDataByusername(username){
+  return this.apiService.getData("http://15.207.6.226:8080/getRegisteredUserByUserName/"+username);
+  }
 }
