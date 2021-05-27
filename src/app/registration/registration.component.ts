@@ -7,7 +7,7 @@ import { RegistrationDTO } from "../dto/registration.dto";
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
-  styleUrls: ["./registration.component.less"],
+  styleUrls: ["./registration.component.scss"],
 })
 export class RegistrationComponent implements OnInit {
   registerform = new FormGroup({

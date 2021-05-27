@@ -3,7 +3,7 @@ import { Router }from "@angular/router";
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
-  styleUrls: ['./productlist.component.less']
+  styleUrls: ['./productlist.component.scss']
 })
 export class ProductlistComponent implements OnInit {
     constructor(private router:Router) { }

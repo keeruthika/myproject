@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-viewusers',
   templateUrl: './viewusers.component.html',
-  styleUrls: ['./viewusers.component.less']
+  styleUrls: ['./viewusers.component.scss']
 })
 export class ViewusersComponent implements OnInit {
 

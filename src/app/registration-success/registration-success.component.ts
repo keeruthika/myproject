@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-registration-success",
   templateUrl: "./registration-success.component.html",
-  styleUrls: ["./registration-success.component.less"],
+  styleUrls: ["./registration-success.component.scss"],
 })
 export class RegistrationSuccessComponent implements OnInit {
   username: string;
