@@ -20,7 +20,10 @@ export class RegistrationService {
       abc
     );
   }
-
+  getDataAllUsers() {
+  const abc = this.apiService.getData("http://15.207.6.226:8080/getAllRegisteredUser");
+  return abc;
+  }
   getDataByusername(username){
   return this.apiService.getData("http://15.207.6.226:8080/getRegisteredUserByUserName/"+username);
   }
