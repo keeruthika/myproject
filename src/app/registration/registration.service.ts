@@ -18,8 +18,7 @@ export class RegistrationService {
     return this.apiService.postData(
       "http://15.207.6.226:8080/registerUser",
       abc
-    );
-  }
+    );  }
   getDataAllUsers() {
   const abc = this.apiService.getData("http://15.207.6.226:8080/getAllRegisteredUser");
   return abc;
